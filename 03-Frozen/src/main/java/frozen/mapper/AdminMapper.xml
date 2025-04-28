@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+    <comment/>
+    <entry key="insertRecipe">
+        INSERT INTO recipe (
+            name,
+            ingredients,
+            method,
+            time,
+            level
+        ) VALUES (
+            ?,
+            ?,
+            ?,
+            ?,
+            ?
+        )
+    </entry>
+
+    <entry key="selectRecipe">
+        SELECT
+            name,
+            ingredients,
+            method,
+            time,
+            level
+        FROM recipe
+    </entry>
+
+    <entry key="selectRecipeByName">
+        <![CDATA[
+           SELECT * FROM recipe WHERE TRIM(LOWER(name)) = TRIM(LOWER(?))
+    ]]>
+    </entry>
+
+    <entry key="updateRecipe">
+        UPDATE recipe
+        SET
+        name = ?,
+        ingredients = ?,
+        method = ?,
+        time = ?,
+        level = ?
+        WHERE name = ?
+    </entry>
+
+    <entry key="deleteRecipe">
+        <![CDATA[
+           DELETE FROM recipe WHERE TRIM(LOWER(name)) = TRIM(LOWER(?))
+        ]]>
+    </entry>
+
+</properties>
